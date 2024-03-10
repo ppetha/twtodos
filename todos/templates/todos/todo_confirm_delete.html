@@ -1,0 +1,18 @@
+ {% extends "base.html" %} 
+
+{% block page_title %}
+    Excluir Livro
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Desaja apagar seu livro?</h1>
+
+    <p>Deseja mesmo apagar o seu livro? {{ todo.title }}?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">apagar</button>
+        <a href="{% url 'todo_list' %}" class="btn btn-primary">Cancelar</a>
+    </form>
+{% endblock content %}

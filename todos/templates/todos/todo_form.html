@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+    {% if todo.pk %}
+        Editar seu Livro
+    {% else %}
+        Novo Livro
+    {% endif %}
+{% endblock page_title %}
+
+
+{% block content  %}
+{% if todo.pk %}
+    <h1>Editar seu Livro</h1>
+{% else %}
+    <h1>Novo Livro</h1>
+{% endif %}
+<main class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+    <button type="submit" class="bnt bnt-primary">Salvar</button>
+        </form>
+{% endblock content%}  
